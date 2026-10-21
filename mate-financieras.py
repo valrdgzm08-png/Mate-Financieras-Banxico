@@ -73,10 +73,10 @@ def enviar_email(correo_destino, contenido_reporte, asunto):
         
         # Conexión adaptada al puerto de tus variables de entorno
         if PUERTO_SMTP == 587:
-            servidor = smtplib.SMTP('gmail.com', PUERTO_SMTP, timeout=15)
+            servidor = smtplib.SMTP('://gmail.com', PUERTO_SMTP, timeout=15)
             servidor.starttls()
         else:
-            servidor = smtplib.SMTP_SSL('gmail.com', PUERTO_SMTP, timeout=15)
+            servidor = smtplib.SMTP_SSL('://gmail.com', PUERTO_SMTP, timeout=15)
             
         servidor.login(CORREO_REMITENTE, PASSWORD_APLICACION)
         servidor.sendmail(CORREO_REMITENTE, correo_destino, mensaje.as_string())
